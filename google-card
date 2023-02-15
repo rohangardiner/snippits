@@ -1,0 +1,103 @@
+<div id="card">
+	<p class="heading">Heading</p>
+	<p class="subheading">Subheading</p>
+	<button>SIMILAR</button><button>COPY</button>
+</div>
+
+<style>
+body {
+	background-color: #eee;
+	margin: 50px;
+}
+
+#card {
+	border-radius: 4px;
+	background-color: #fff;
+	box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+	padding: 20px 10px;
+	width: 500px;
+}
+
+.heading {
+	font-family: Roboto, sans-serif;
+	font-size: 1.25rem;
+	font-weight: 500;
+	letter-spacing: 0.0125em;
+	margin: 0;
+	padding-left: 20px;
+}
+
+.subheading {
+	font-family: Roboto, sans-serif;
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+	font-weight: 400;
+	letter-spacing: 0.0178571429em;
+	text-decoration: inherit;
+	text-transform: inherit;
+	opacity: 0.6;
+	padding-left: 20px;
+}
+
+button {
+	font-family: Roboto, sans-serif;
+	font-size: 0.875rem;
+	font-weight: 500;
+	padding: 10px 16px;
+	color: #6200ee;
+	text-decoration: none;
+	margin: 0 4px;
+	background: transparent;
+	transition: background 0.1s linear;
+	border: none;
+  position: relative;
+  overflow: hidden;
+  outline: 0;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+button:hover {
+	background: #f3ebff;
+	border-radius: 4px;
+}
+
+span.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 0.4s linear;
+  background-color: rgba(98, 0, 236, 0.2);
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+</style>
+
+<script type="text/javascript">
+function createRipple(event) {
+	const button = event.currentTarget;
+	const circle = document.createElement("span");
+	const diameter = Math.max(button.clientWidth, button.clientHeight);
+	const radius = diameter / 2;
+	circle.style.width = circle.style.height = `${diameter}px`;
+	circle.style.left = `${event.clientX - (button.offsetLeft + radius)}px`;
+	circle.style.top = `${event.clientY - (button.offsetTop + radius)}px`;
+	circle.classList.add("ripple"); 
+	const ripple = button.getElementsByClassName("ripple")[0];
+
+	if (ripple) {
+		ripple.remove();
+	}
+	button.appendChild(circle);
+}
+
+const buttons = document.getElementsByTagName("button");
+for (const button of buttons) {
+  button.addEventListener("click", createRipple);
+}
+</script>
