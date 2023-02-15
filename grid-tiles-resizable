@@ -1,0 +1,44 @@
+<div id="container">
+  <div class="item">
+  Lorem
+  </div>
+  <div class="item">
+  ipsum
+  </div>
+  <div class="item">
+  dolor
+  </div>
+  <div class="item">
+  sit
+  </div>
+  <div class="item">
+  amet,
+  </div>
+  <div class="item">
+  consectetur
+  </div>
+  <div class="item">
+  adipiscing
+  </div>
+  <div class="item">
+  elit.
+  </div>
+  <div class="item">
+  Sed
+  </div>
+  <div class="item">
+  tincidunt
+  </div>
+</div>
+
+<style>
+  #container {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+  }
+
+  .item {
+    border: 1px dotted grey;
+  }
+</style>
