@@ -1,0 +1,3 @@
+## Run with directory to get list of child .html files and output a list of links to each file, good for creating an index
+
+Get-ChildItem -Path C:\temp\ -Filter *.html -Recurse -File -Name| ForEach-Object {[System.IO.Path]::GetFileNameWithoutExtension($_)}| ForEach-Object{Write-Output "<a href=`"$($_).html`">$($_) </a>"}
