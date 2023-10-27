@@ -1,0 +1,4 @@
+# Excel conditional formatting if the sum of comma-separated numbers is larger than another cell
+
+# Conditional formatting formula to check if the sum of numbers (separated by commas) in cell B1 is larger than the sum of numbers (separated by commas) in cell A1:
+=SUM(VALUE(TEXTSPLIT(B1, ",")))>SUM(VALUE(TEXTSPLIT(A1, ",")))
